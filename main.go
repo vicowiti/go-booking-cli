@@ -3,5 +3,11 @@ package main
 import "fmt"
 
 func main (){
-fmt.Print("Hello World\n")
+var eventName = "Manchester Derby" // Variable declaration
+
+fmt.Printf("Welcome to the %s\n", eventName) //Using printf to print formatted output
+fmt.Println("Book your tickets here!")
+
+
+
 }
