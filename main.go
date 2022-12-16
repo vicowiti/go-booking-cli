@@ -11,7 +11,9 @@ fmt.Printf("Welcome to the %s\n", eventName) //Using printf to print formatted o
 fmt.Println("Remaining tickets:", remainingTickets)
 fmt.Println("Book your tickets here!")
 fmt.Println("Seats :",eventTickets)
+ bookings  := []string{} //Slice => dynamic array.
 
+for {//a for loop wit just a body runs infinitely
 var firstName string
 var lastName string
 var email string
@@ -19,7 +21,7 @@ var userTickets uint
 //  Getting user input
 
 // var bookings = [eventTickets]string{} //Declaring a string array
-var bookings = []string{} //Slice => dynamic array.
+
 
 fmt.Println("What is your first name")
 fmt.Scan(&firstName) //Scanning and assigning to the memory address
@@ -42,5 +44,7 @@ fmt.Printf("%v remaining tickets\n", remainingTickets)
 fmt.Printf("length of booking slice is: %v", len(bookings))
 fmt.Printf("arr slice is: %v",bookings)
 fmt.Printf("These are all our bookings: %v\n", bookings)
+
+}
 
 }
