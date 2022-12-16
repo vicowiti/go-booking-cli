@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main (){
-var eventName = "Manchester Derby" // Variable declaration
+var eventName = "Manchester Derby" // Variable declaration implicit type
 const eventTickets uint = 86 //Constant, a value that does not change
 var remainingTickets uint = 86
 
@@ -41,4 +41,6 @@ fmt.Printf("%v remaining tickets\n", remainingTickets)
 
 fmt.Printf("length of booking slice is: %v", len(bookings))
 fmt.Printf("arr slice is: %v",bookings)
+fmt.Printf("These are all our bookings: %v\n", bookings)
+
 }
