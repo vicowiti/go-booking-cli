@@ -20,6 +20,8 @@ fmt.Println("Seats :",eventTickets)
 
 
 for {//a for loop with just a body runs infinitely
+
+	
 var firstName string
 var lastName string
 var email string
@@ -41,6 +43,14 @@ fmt.Scan(&email)
 fmt.Println("How many tickets do you want?")
 fmt.Scan(&userTickets)
 
+
+if userTickets > remainingTickets{
+	fmt.Printf("Invalid amount, you cannot book %v tickets. W only have %v tickets remaining.\n", userTickets, remainingTickets)
+	continue
+}
+
+
+
 fmt.Printf("Thank you %v %v for booking %v tickets. You will get a confirmation email at %v\n", firstName,lastName,userTickets,email)
  remainingTickets -=  userTickets
 
@@ -56,7 +66,12 @@ for _, booking := range bookings { //A for-each loop // The underscore character
 	firstNameList = append(firstNameList, names[0])
 }
 
-fmt.Printf("The firstnames are: %v\n", firstNameList )
+fmt.Printf("The first names are: %v\n", firstNameList )
+
+if remainingTickets == 0 {
+	fmt.Println("We are fully booked, try again next year.")
+	break
+}
 
 }
 
