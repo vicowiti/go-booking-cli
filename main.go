@@ -5,13 +5,19 @@ import (
 	"go-booking-cli/captureData"
 	"go-booking-cli/greeting"
 	"go-booking-cli/validateData"
-	"strconv"
 )
 
 var totalTickets uint = 80
 var remainingTickets uint = 80
 var eventName string = "Go Conference"
-var bookings = make([]map[string] string,0)
+var bookings = make([]userData,0)
+
+type userData struct {
+	firstName string
+	lastName string
+	email string
+	tickets uint
+}
 
 
 func main () {
@@ -32,19 +38,24 @@ func main () {
 	if validData{
 		remainingTickets = remainingTickets - tickets
 
-		// Create a user Map
+		// Create a user Map 
 
-		var user = make(map[string] string) // Create a map for storing user data
-		user["firstName"] = firstName
-		user["lastName"] = lastName
-		user["email"] = email
-		user["tickets"] = strconv.FormatUint(uint64(tickets), 10) //Converting uint to string
+		var user = userData {
+			firstName: firstName,
+			lastName: lastName,
+			email: email,
+			tickets: tickets,
+		}
+		// user["firstName"] = firstName
+		// user["lastName"] = lastName
+		// user["email"] = email
+		// user["tickets"] = strconv.FormatUint(uint64(tickets), 10) //Converting uint to string
 
 		bookings = append(bookings, user)
 		var firstNameSlice = []string{}
 
 		for _, booking := range bookings {
-			firstNameSlice = append(firstNameSlice, booking["firstName"])
+			firstNameSlice = append(firstNameSlice, booking.firstName)
 		}
 
 		fmt.Printf("The user list is: %v \n", bookings)
