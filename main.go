@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"go-booking-cli/bookTicket"
 	"go-booking-cli/captureData"
 	"go-booking-cli/greeting"
 	"go-booking-cli/validateData"
@@ -38,6 +39,8 @@ func main () {
 	if validData{
 		remainingTickets = remainingTickets - tickets
 
+		//
+
 		// Create a user Map 
 
 		var user = userData {
@@ -58,15 +61,25 @@ func main () {
 			firstNameSlice = append(firstNameSlice, booking.firstName)
 		}
 
+		
+
 		fmt.Printf("The user list is: %v \n", bookings)
 		fmt.Printf("The user list is: %v \n", firstNameSlice)
 		fmt.Printf("Total remaining tickets is: %v\n", remainingTickets)
-	}else{
+		
+		//Book Ticket
+		go bookTicket.BookTicket(firstName, tickets)
+		}else{
 		fmt.Println("You entered invalid data")
 		fmt.Println("Kindly confirm the following:")
 		fmt.Println("1. Your names are at least two characters long.")
 		fmt.Println("2. Your email contains the '@' symbol.")
 		fmt.Println("3. You are booking a valid number of tickets.")
 	}
+if remainingTickets == 0 {
+	fmt.Println("We are sold out, try again next year.")
+	break
+}
+
 	}
 }
